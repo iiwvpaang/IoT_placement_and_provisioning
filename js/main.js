@@ -1,4 +1,5 @@
 import { initNavigation } from './navigation.js';
+import { initProvisioning } from './provisioning.js';
 
 /**
  * Main Application Orchestration
@@ -7,4 +8,7 @@ import { initNavigation } from './navigation.js';
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Structural Navigation & Panel Toggles
   initNavigation();
+
+  // 2. Device Provisioning State Transitions
+  initProvisioning();
 });
