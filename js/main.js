@@ -1,5 +1,6 @@
 import { initNavigation } from './navigation.js';
 import { initProvisioning } from './provisioning.js';
+import { initPlacement } from './placement.js';
 
 /**
  * Main Application Orchestration
@@ -11,4 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 2. Device Provisioning State Transitions
   initProvisioning();
+
+  // 3. Drag/Drop & Canvas Node Placement
+  initPlacement();
 });
