@@ -4,6 +4,34 @@ let offset = { x: 0, y: 0 };
 export function initPlacement() {
   const canvas = document.getElementById('main-canvas');
 
+  // Spawn Device Dynamic Action
+  document.addEventListener('click', (event) => {
+    const spawnBtn = event.target.closest('[data-action="spawn-device"]');
+    if (!spawnBtn) return;
+
+    const type = spawnBtn.getAttribute('data-type');
+    const id = `dev-${Date.now().toString().slice(-3)}`;
+    
+    const node = document.createElement('article');
+    node.className = 'device-node';
+    node.id = id;
+    node.tabIndex = 0;
+    node.setAttribute('data-type', type);
+    node.setAttribute('data-status', 'idle');
+    node.setAttribute('data-selected', 'false');
+    node.style.setProperty('--x', '50px');
+    node.style.setProperty('--y', '50px');
+
+    node.innerHTML = `
+      <header class="node-header"><span class="node-title">${type}-${id}</span></header>
+      <div class="node-body">
+        <span class="status-indicator"></span>
+        <button type="button" class="btn-action" data-action="provision">Provision</button>
+      </div>
+    `;
+    canvas.appendChild(node);
+  });
+
   // Drag & Drop Handling (Sets position pure CSS Custom Prop)
   document.addEventListener('mousedown', (e) => {
     const node = e.target.closest('.device-node');
