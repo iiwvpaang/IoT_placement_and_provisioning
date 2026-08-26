@@ -1,0 +1,19 @@
+/* -- Skip link for keyboard users --
+ | hide the button on start        */
+.skip-to-content {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  background: #000000;
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  z-index: 9999;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* show this button when keyboard users tab to it */
+.skip-to-content:focus {
+  top: 0;
+  left: 0;
+}
