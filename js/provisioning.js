@@ -14,6 +14,8 @@ export function initProvisioning() {
     setTimeout(() => {
       node.setAttribute('data-status', 'online');
       btn.disabled = false;
+      // Notify Inspector if selected
+      document.getElementById('main-canvas').dispatchEvent(new CustomEvent('node-selected', { detail: node }));
     }, 2500);
   });
 }

@@ -130,3 +130,16 @@ body {
 .device-node[data-status="provisioning"] .status-indicator::before { content: "⏳ Connecting..."; color: var(--status-connecting); }
 .device-node[data-status="online"] .status-indicator::before { content: "✓ Online"; color: var(--status-online); }
 .device-node[data-status="online"] .btn-action { display: none; }
+
+/* Inspector Panel */
+.inspector-panel {
+  width: 260px;
+  background: var(--bg-panel);
+  border-left: 1px solid var(--border-color);
+  padding: 1rem;
+}
+.inspector-panel[data-has-target="false"] .inspector-content { display: none; }
+.inspector-panel[data-has-target="true"] .inspector-empty { display: none; }
+
+.field { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.25rem; }
+.field input { background: var(--bg-dark); border: 1px solid var(--border-color); color: white; padding: 0.4rem; }
