@@ -17,4 +17,13 @@ export function initNavigation() {
       panel.removeAttribute('hidden');
     }
   });
+
+  // Handle settings toggle
+  const gridToggle = document.getElementById('toggle-grid');
+  if (gridToggle) {
+    gridToggle.addEventListener('change', (e) => {
+      const canvas = document.getElementById('main-canvas');
+      canvas.setAttribute('data-grid-active', e.target.checked ? 'true' : 'false');
+    });
+  }
 }
