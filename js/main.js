@@ -2,6 +2,7 @@ import { initNavigation } from './navigation.js';
 import { initProvisioning } from './provisioning.js';
 import { initPlacement } from './placement.js';
 import { initInspector } from './inspector.js';
+import { initKeyboardNav } from './keyboard.js';
 
 /**
  * Main Application Orchestration
@@ -19,4 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 4. Attribute-based Inspector Sync
   initInspector();
+
+  // 5. Accessibility Shortcuts & Focus Management
+  initKeyboardNav();
 });
