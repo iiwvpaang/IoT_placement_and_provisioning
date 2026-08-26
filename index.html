@@ -42,6 +42,26 @@
     </nav>
   </header>
 
+  <aside id="panel-toolbar" class="drawer-panel" hidden data-state="closed">
+    <h3>Placement Tools</h3>
+    <div class="tool-grid">
+      <button type="button" class="tool-item" data-action="spawn-device" data-type="sensor">
+        + Add Sensor
+      </button>
+      <button type="button" class="tool-item" data-action="spawn-device" data-type="gateway">
+        + Add Gateway
+      </button>
+    </div>
+  </aside>
+
+  <aside id="panel-settings" class="drawer-panel" hidden data-state="closed">
+    <h3>Tool Settings</h3>
+    <label class="setting-row">
+      <span>Show Grid Mesh</span>
+      <input type="checkbox" id="toggle-grid" checked />
+    </label>
+  </aside>
+
   <div class="workspace">
     <main id="main-canvas" class="canvas-grid" tabindex="0" data-grid-active="true">
         <article class="device-node" 

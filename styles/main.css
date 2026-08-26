@@ -57,7 +57,7 @@ body {
 .brand { display: flex; align-items: center; gap: 0.5rem; font-weight: bold; }
 .app-nav { display: flex; gap: 0.5rem; }
 
-.nav-btn, .btn-action {
+.nav-btn, .btn-action, .tool-item {
   background: var(--bg-element);
   color: var(--text-main);
   border: 1px solid var(--border-color);
@@ -69,6 +69,20 @@ body {
   border-color: var(--accent-color);
   background: var(--accent-color);
 }
+
+/* Drawer Panels */
+.drawer-panel {
+  position: absolute;
+  top: 60px;
+  right: 1.5rem;
+  width: 260px;
+  padding: 1rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  z-index: 200;
+}
+.drawer-panel[hidden] { display: none !important; }
 
 /* Workspace Layout */
 .workspace {
