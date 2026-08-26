@@ -1,3 +1,29 @@
+:root {
+  --bg-dark: #121417;
+  --bg-panel: #1e2227;
+  --bg-element: #2d3239;
+  --border-color: #3a414b;
+  --text-main: #f0f4f8;
+  --text-muted: #9ba3af;
+  --accent-color: #0d6efd;
+  --status-idle: #6c757d;
+  --status-connecting: #ffc107;
+  --status-online: #198754;
+  --status-error: #dc3545;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
 /* -- Skip link for keyboard users --
  | hide the button on start        */
 .skip-to-content {
@@ -17,3 +43,76 @@
   top: 0;
   left: 0;
 }
+
+/* Header & Nav */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--bg-panel);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 100;
+}
+.brand { display: flex; align-items: center; gap: 0.5rem; font-weight: bold; }
+.app-nav { display: flex; gap: 0.5rem; }
+
+.nav-btn, .btn-action {
+  background: var(--bg-element);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.nav-btn[aria-expanded="true"] {
+  border-color: var(--accent-color);
+  background: var(--accent-color);
+}
+
+/* Workspace Layout */
+.workspace {
+  display: flex;
+  flex: 1;
+  position: relative;
+}
+
+.canvas-grid {
+  flex: 1;
+  position: relative;
+  background-color: var(--bg-dark);
+}
+.canvas-grid[data-grid-active="true"] {
+  background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Device Node CSS driven purely by attributes */
+.device-node {
+  position: absolute;
+  top: var(--y, 0px);
+  left: var(--x, 0px);
+  width: 140px;
+  background: var(--bg-panel);
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.75rem;
+  cursor: move;
+  user-select: none;
+}
+.device-node[data-selected="true"] {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 8px rgba(13, 110, 253, 0.5);
+}
+
+/* CSS pure function of status attribute */
+.status-indicator::before {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.device-node[data-status="idle"] .status-indicator::before { content: "● Idle"; color: var(--status-idle); }
+.device-node[data-status="provisioning"] .status-indicator::before { content: "⏳ Connecting..."; color: var(--status-connecting); }
+.device-node[data-status="online"] .status-indicator::before { content: "✓ Online"; color: var(--status-online); }
+.device-node[data-status="online"] .btn-action { display: none; }

@@ -15,15 +15,52 @@
 <body data-app-state="ready">
 
   <!-- Accessible Skip Link for Keyboard Users -->
-  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+  <a href="#main-canvas" class="skip-to-content">Skip to main content</a>
 
-  <header role="banner">
-    <h1>IoT Provisioning Console</h1>
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-icon">⚡</span>
+      <span class="brand-title">IoT Provisioner</span>
+    </div>
+
+    <nav class="app-nav">
+      <button type="button" 
+              class="nav-btn" 
+              data-target="panel-toolbar" 
+              aria-expanded="false" 
+              aria-controls="panel-toolbar">
+        <span>Toolbar</span>
+      </button>
+
+      <button type="button" 
+              class="nav-btn" 
+              data-target="panel-settings" 
+              aria-expanded="false" 
+              aria-controls="panel-settings">
+        <span>Settings</span>
+      </button>
+    </nav>
   </header>
 
-  <main id="main-content" tabindex="-1">
-    <!-- UI Components and State Container -->
-  </main>
+  <div class="workspace">
+    <main id="main-canvas" class="canvas-grid" tabindex="0" data-grid-active="true">
+        <article class="device-node" 
+                id="dev-101" 
+                tabindex="0"
+                data-type="sensor"
+                data-status="idle" 
+                data-selected="false"
+                style="--x: 120px; --y: 100px;">
+        <header class="node-header">
+            <span class="node-title">Sensor-01</span>
+        </header>
+        <div class="node-body">
+            <span class="status-indicator"></span>
+            <button type="button" class="btn-action" data-action="provision">Provision</button>
+        </div>
+        </article>
+    </main>
+  </div>
 
   <footer role="contentinfo">
     <small>Status: System Operational</small>
